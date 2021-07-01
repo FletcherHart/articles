@@ -43,6 +43,9 @@ class HandleInertiaRequests extends Middleware
         }
         return array_merge(parent::share($request), [
             'isAdmin' => $isAdmin,
+            'flash' => [
+                'message' => fn () => $request->session()->get('message')
+            ],
         ]);
     }
 }

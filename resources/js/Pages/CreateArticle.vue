@@ -1,7 +1,7 @@
 <template>
   <app-layout>
     <div class="flex flex-col items-center py-10">
-      <form class="flex lg:flex-row flex-col w-full md:px-10 px-2 gap-5" @submit.prevent="form.post('/articles')">
+      <form class="flex lg:flex-row flex-col w-full md:px-10 px-2 gap-5" @submit.prevent="submit()">
         <div class="lg:w-3/4 flex flex-col gap-10">
           <div class="flex flex-col w-full">
             <label for="title">Title</label>
@@ -40,7 +40,11 @@
         </div>
         <div class="lg:w-1/4 px-5 flex flex-col">
           <div>Save/Publish </div>
-          <button class="border border-gray-400 text-gray-700 bg-gray-200 p-3 rounded" type="submit" >Publish</button>
+          <button class="border border-gray-400 text-gray-700 bg-gray-200 p-3 rounded" type="submit">Publish</button>
+          <div v-show="$page.props.flash.message">
+            {{ $page.props.flash.message }}
+          </div>
+          {{ $page.props.flash }}
         </div>
       </form>
     </div>
@@ -57,15 +61,38 @@
           AppLayout,
           'editor': Editor,
       },
-      setup () {
-        const form = useForm({
-          title: null,
-          tagline: null,
-          text: false,
-        })
-
-        return { form }
+      props: {
+        article: Object,
       },
+      setup (props) {
+        if(props.article === undefined || props.article.length == 0) {
+          const form = useForm({
+            title: null,
+            tagline: null,
+            text: null,
+          })
+
+          return { form }
+
+        } else {
+          const form = useForm({
+            title: props.article.title,
+            tagline: props.article.tagline,
+            text: props.article.text,
+          })
+
+          return { form }
+        }
+      },
+      methods: {
+        submit() {
+          if(this.article === undefined || this.article.length == 0) {
+            this.form.post('/articles')
+          } else {
+            this.form.put('/articles/' + this.article.id)
+          }
+        }
+      }
     }
 </script>
 
