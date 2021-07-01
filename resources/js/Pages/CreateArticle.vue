@@ -2,7 +2,7 @@
   <app-layout>
     <div class="flex flex-col items-center py-10">
       <form class="flex lg:flex-row flex-col w-full md:px-10 px-2 gap-5" @submit.prevent="form.post('/articles')">
-        <div class="lg:w-2/3 flex flex-col gap-10">
+        <div class="lg:w-3/4 flex flex-col gap-10">
           <div class="flex flex-col w-full">
             <label for="title">Title</label>
             <div class="error" v-show="form.errors.title">{{ form.errors.title }}</div>
@@ -32,12 +32,13 @@
                 toolbar:
                   'undo redo | formatselect | bold italic backcolor | \
                   alignleft aligncenter alignright alignjustify | \
-                  bullist numlist outdent indent | removeformat | help'
+                  image | bullist numlist outdent indent | \
+                  removeformat | help'
               }"
             />
           </div>
         </div>
-        <div class="lg:w-1/3 px-5 flex flex-col">
+        <div class="lg:w-1/4 px-5 flex flex-col">
           <div>Save/Publish </div>
           <button class="border border-gray-400 text-gray-700 bg-gray-200 p-3 rounded" type="submit" >Publish</button>
         </div>

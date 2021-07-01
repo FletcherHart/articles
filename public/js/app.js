@@ -23205,7 +23205,7 @@ var _hoisted_1 = {
   "class": "flex flex-col items-center py-10"
 };
 var _hoisted_2 = {
-  "class": "lg:w-2/3 flex flex-col gap-10"
+  "class": "lg:w-3/4 flex flex-col gap-10"
 };
 var _hoisted_3 = {
   "class": "flex flex-col w-full"
@@ -23238,7 +23238,7 @@ var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 );
 
 var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-  "class": "lg:w-1/3 px-5 flex flex-col"
+  "class": "lg:w-1/4 px-5 flex flex-col"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, "Save/Publish "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
   "class": "border border-gray-400 text-gray-700 bg-gray-200 p-3 rounded",
   type: "submit"
@@ -23300,7 +23300,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           plugins: ['advlist autolink lists link image charmap print preview anchor', 'searchreplace visualblocks code fullscreen', 'insertdatetime media table paste code help wordcount'],
           toolbar: 'undo redo | formatselect | bold italic backcolor | \
                   alignleft aligncenter alignright alignjustify | \
-                  bullist numlist outdent indent | removeformat | help'
+                  image | bullist numlist outdent indent | \
+                  removeformat | help'
         }
       }, null, 8
       /* PROPS */
