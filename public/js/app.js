@@ -19091,6 +19091,17 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     article: Object,
     author: String
+  },
+  methods: {
+    format: function format(created_at) {
+      var date = new Date(created_at);
+      var options = {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+      };
+      return date.toLocaleDateString("en-US", options);
+    }
   }
 });
 
@@ -21484,7 +21495,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "min-h-screen bg-gray-100"
+  "class": "min-h-screen",
+  style: {
+    "font-family": "'Roboto Condensed', Times, sans-serif"
+  }
 };
 var _hoisted_2 = {
   "class": "bg-white border-b border-gray-100"
@@ -22276,20 +22290,41 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
+var _hoisted_1 = {
+  "class": "flex flex-col justify-center items-center py-10 px-5"
+};
+var _hoisted_2 = {
+  "class": "w-1/2 flex flex-col gap-5"
+};
+var _hoisted_3 = {
+  "class": "flex flex-col"
+};
+var _hoisted_4 = {
+  "class": "text-4xl font-bold"
+};
+var _hoisted_5 = {
+  "class": "text-2xl font-medium"
+};
+var _hoisted_6 = {
+  "class": "text-xl"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_app_layout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("app-layout");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_app_layout, null, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.article.title), 1
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("article", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.article.title), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.article.tagline), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h2", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.article.tagline), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.format($props.article.created_at)), 1
+      /* TEXT */
+      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+        "class": "leading-relaxed text-lg flex flex-col gap-3",
         innerHTML: $props.article.text
       }, null, 8
       /* PROPS */
-      , ["innerHTML"])];
+      , ["innerHTML"])])])];
     }),
     _: 1
     /* STABLE */
@@ -24968,7 +25003,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.error {\n  color: red;\n  font-weight: 700;\n  font-size: larger;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.error {\r\n  color: red;\r\n  font-weight: 700;\r\n  font-size: larger;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
