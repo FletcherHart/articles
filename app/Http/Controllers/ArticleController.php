@@ -23,6 +23,18 @@ class ArticleController extends Controller
     }
 
     /**
+     * Display a listing of the resource owned by the current user.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function owned()
+    {
+        $articles = Article::where('user_id', auth()->id())->get();
+
+        return Inertia::render('ArticleIndex', ['articles' => $articles]);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -127,6 +139,13 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $article = Article::find($id);
+        if($article->user_id == auth()->id()) {
+            $article->delete();
+            return back();
+        } else {
+            return back();
+        }
+        
     }
 }

@@ -29,6 +29,8 @@ Route::get('/error', function () {
     return Inertia::render('Error');
 })->name('error');
 
+Route::get('/articles/owned', [ArticleController::class, 'owned'])->name('articles.owned');
+
 Route::resource('articles', ArticleController::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
