@@ -17,7 +17,9 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        $articles = Article::get();
+
+        return Inertia::render('ArticleIndex', ['articles' => $articles]);
     }
 
     /**
