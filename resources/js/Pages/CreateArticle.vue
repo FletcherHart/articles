@@ -1,7 +1,7 @@
 <template>
   <app-layout>
     <div class="flex flex-col items-center py-10">
-      <form class="flex lg:flex-row flex-col w-full md:px-10 px-2 gap-5" @submit.prevent="submit()">
+      <form class="flex lg:flex-row flex-col w-full gap-5" @submit.prevent="submit()">
         <div class="lg:w-3/4 flex flex-col gap-10">
           <div class="flex flex-col w-full">
             <label for="title">Title</label>

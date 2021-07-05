@@ -3,7 +3,7 @@
         <jet-banner />
 
         <div class="min-h-screen" style="font-family: 'Roboto Condensed', Times, sans-serif">
-            <nav class="bg-white border-b border-green-700">
+            <nav class="bg-white shadow">
                 <!-- Primary Navigation Menu -->
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="flex justify-between h-16">
@@ -139,7 +139,7 @@
             </header>
 
             <!-- Page Content -->
-            <main>
+            <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex md:flex-row flex-col">
                 <slot></slot>
             </main>
         </div>

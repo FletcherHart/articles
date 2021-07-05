@@ -1,6 +1,6 @@
 <template>
   <app-layout>
-    <article class="flex flex-col justify-center items-center py-10 px-5">
+    <article class="flex flex-col justify-start items-start py-10">
       <div class="md:w-2/3 lg:w-1/2 px-3 flex flex-col gap-3" v-if="articles != null || articles.length != 0">
         <div class="flex flex-col pb-3 border-b border-gray-300" v-for="article in articles" :key="article.id">
           <div class="flex justify-between">

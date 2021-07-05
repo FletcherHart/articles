@@ -1,6 +1,6 @@
 <template>
   <app-layout>
-    <article class="flex flex-col justify-center items-center py-10 px-5">
+    <article class="flex flex-col justify-start items-start py-10">
       <div class="w-1/2 flex flex-col gap-5">
         <div class="flex flex-col">
           <h1 class="text-4xl font-bold">{{ article.title }}</h1>
