@@ -26,6 +26,7 @@
         "vue-loader": "^16.1.2"
     },
     "dependencies": {
-        "@tinymce/tinymce-vue": "^4.0.3"
+        "@tinymce/tinymce-vue": "^4.0.3",
+        "boxicons": "^2.0.7"
     }
 }
