@@ -9,7 +9,8 @@
               <h3 class="text-lg font-medium">{{ article.tagline }}</h3>
               <div>{{format(article.created_at)}}</div>
             </inertia-link>
-            <div class="self-end" v-show="route().current('articles.owned')">
+            <div class="self-end flex flex-col gap-2" v-show="route().current('articles.owned')">
+              <a class="bg-yellow-500 text-white font-medium text-center p-3" :href="route('articles.edit', article.id)">Edit</a>
               <button class="bg-red-700 text-white font-medium p-3" @click="remove(article.id)">Delete</button>
             </div>
           </div>
