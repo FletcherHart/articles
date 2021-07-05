@@ -1,6 +1,26 @@
 <template>
-    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M11.395 44.428C4.557 40.198 0 32.632 0 24 0 10.745 10.745 0 24 0a23.891 23.891 0 0113.997 4.502c-.2 17.907-11.097 33.245-26.602 39.926z" fill="#6875F5"/>
-      <path d="M14.134 45.885A23.914 23.914 0 0024 48c13.255 0 24-10.745 24-24 0-3.516-.756-6.856-2.115-9.866-4.659 15.143-16.608 27.092-31.75 31.751z" fill="#6875F5"/>
-    </svg>
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" viewBox="584 181 310 360"><g data-item-type="text" data-item="Business" id="logo__item--business" class="logo__item">
+                    <g class="logo__item__inner" transform="translate(765 424.636979540685) scale(1 1) rotate(0 0 0)">
+                        <text data-part-id="logo__item--business" dy="0" dominant-baseline="auto" alignment-baseline="auto" font-family="Montserrat" font-size="32px" fill="#051837" letter-spacing="0" font-weight="bold" font-style="normal" data-font-family="Montserrat" data-font-weight="bold" data-font-style="normal" data-ttf-url="/builder_assets/fontsttf/font-montserrat-bold-normal.ttf"></text>
+                    </g>
+                </g><g data-item-type="shape" data-item="Shape" data-logo-item="" id="logo__item--shape_1" class="logo__item">
+        <g class="logo__item__inner" transform="translate(542.369457244873 160.49999618530273) scale(3.93808970584387 3.93808970584387) rotate(0 0 0)">
+            
+    <g>
+      <path fill="#0bb503" d="M49.9,91.5C10.7,68.9,15.7,26.3,15.8,25.9l-0.2-0.4L50,10.6V6.1L11.6,22.7c0,0-5.6,47.8,38.4,73.4v-4.4L49.9,91.5z" data-part-id="logo__item--shape_1__0"></path>
+      <path fill="#dfe214" d="M16.8,26.5C16.4,30.9,15,69,50,89.9V12.2L16.8,26.5z" data-part-id="logo__item--shape_1__1"></path>
+      <path fill="#09b600" d="M83.2,26.5L50,12.2v77.8C87,69,83.6,30.9,83.2,26.5z" data-part-id="logo__item--shape_1__2"></path>
+      <path fill="#dfe214" d="M88.4,22.7L50,6.1v4.5l34.9,14.9l0.2,0.4c0.1,0.4,4.7,43-34.5,65.6L50,91.7v4.4C94,70.5,88.4,22.7,88.4,22.7z" data-part-id="logo__item--shape_1__3"></path>
+    </g>
+
+        </g>
+    </g><g data-item-type="image" data-item="Image" data-logo-item="" id="logo__item--logo_0" class="logo__item">
+        <g class="logo__item__inner" transform="translate(605.5981752512242 219.5) scale(1.7960422842565555 1.7960422842565555) rotate(0.5932981871815285 65.70001220703125 65.65000559812586)">
+            
+    <g>
+      <path fill="#042701" d="M137.2,68.4L90,21.5v11.7l41.3,41.1c0.6,0.6,0.8,1.3,0.8,2.1c0,0.8-0.6,1.5-1.1,2.1L83,126.8   c0-8,0-19.4,0-20.4c11-2.9,17.2-10.5,17.2-20.4c0-5-1.1-9.1-3.8-12.4C94.9,72,93,70.7,90.7,70c-0.3-0.1-0.5-0.3-0.9-0.4   c-3.8-1.4-11.8-4.3-11.8-4.3l-1.6,4.4l-8.4-13L83,52.2l-1.6,4.3c0,0,6.8,2.5,11.3,4.1c0.5,0.2,1,0.4,1.4,0.6l4.4-16.1l-2.8-1.3   c-3.5-1.6-7.4-2.7-11.7-3.1c0-0.7,0-4.7,0-9l0,0l0.2-16.4c-2.1-2.1-6.5-4.1-9.5-4.1c-3,0-5.9,1.2-8,3.3L12.5,69   c-2.1,2.1-3.3,5-3.3,8c0,3,1.2,5.9,3.3,8l46.2,45.8l-0.1-11.8L18.5,79c-0.6-0.6-0.9-1.3-0.9-2.1c0-0.8,0.3-1.5,0.9-2.1l48.7-49.1   c0,6.4,0,15.2,0,16.1C57,44.8,51,52.1,51,61.7c0,8.2,4.3,13.2,9.9,16.6c0.3,0.1,0.6,0.3,1,0.4c0.3,0.1,0.6,0.3,0.9,0.4   c3.8,1.4,11.8,4.3,11.8,4.3l1.6-4.4l8.4,13l-14.9,4.6l1.6-4.3c0,0-6.8-2.5-11.3-4.1c-3-1.1-4.6-2.8-5.3-4.5l-4.8,18.6l2.7,1.4   c3.6,2,8.4,3.5,14.4,4.1c0,1.1,0,11.6,0,19.2v-0.1v11.7l0.4,0.6c2.1,2.1,4.8,3.3,7.8,3.3c3,0,5.8-1.2,8-3.3l54.1-54.5   c2.1-2.1,3.3-5,3.3-8C140.5,73.4,139.4,70.6,137.2,68.4z" data-part-id="logo__item--logo_0__0"></path>
+    </g>
+
+        </g>
+    </g></svg>
 </template>
