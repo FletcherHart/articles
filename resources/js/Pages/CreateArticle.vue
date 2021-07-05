@@ -44,7 +44,6 @@
           <div v-show="$page.props.flash.message">
             {{ $page.props.flash.message }}
           </div>
-          {{ $page.props.flash }}
         </div>
       </form>
     </div>

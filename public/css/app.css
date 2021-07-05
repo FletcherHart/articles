@@ -2275,10 +2275,6 @@ select {
 		display: grid;
 	}
 
-	.md\:w-1\/2 {
-		width: 50%;
-	}
-
 	.md\:w-2\/3 {
 		width: 66.666667%;
 	}
@@ -2314,16 +2310,16 @@ select {
 		grid-column: span 4 / span 4;
 	}
 
+	.lg\:w-1\/2 {
+		width: 50%;
+	}
+
 	.lg\:w-3\/4 {
 		width: 75%;
 	}
 
 	.lg\:w-1\/4 {
 		width: 25%;
-	}
-
-	.lg\:w-1\/2 {
-		width: 50%;
 	}
 
 	.lg\:flex-row {
