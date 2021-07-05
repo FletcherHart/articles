@@ -23,6 +23,9 @@
                                 <jet-nav-link :href="route('articles.index')" :active="route().current('articles.index')">
                                     Articles
                                 </jet-nav-link>
+                                <jet-nav-link :href="route('articles.owned')" :active="route().current('articles.owned')">
+                                    My Articles
+                                </jet-nav-link>
                                 <jet-nav-link :href="route('articles.create')" :active="route().current('articles.create')">
                                     Create Article
                                 </jet-nav-link>
