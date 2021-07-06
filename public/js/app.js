@@ -21757,7 +21757,7 @@ var _hoisted_37 = {
   "class": "max-w-7xl mx-auto p-4 sm:p-6 lg:p-8"
 };
 var _hoisted_38 = {
-  "class": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex md:flex-row flex-col"
+  "class": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex lg:flex-row flex-col"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_jet_banner = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("jet-banner");
@@ -22016,16 +22016,16 @@ var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("dat
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-3309a336");
 
 var _hoisted_1 = {
-  "class": "md:w-1/3 max-h-screen md:border-l md:border-grey-100 py-10 px-5 md:ml-10 sticky top-0 flex flex-col items-center"
+  "class": "lg:w-1/3 max-h-screen lg:border-l lg:border-grey-100 py-10 md:px-5 lg:ml-10 flex flex-col items-center sticky top-0"
 };
 var _hoisted_2 = {
   "class": "flex justify-center items-center text-2xl"
 };
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"m-5 flex flex-col items-center\" data-v-3309a336><h2 class=\"font-semibold text-2xl\" data-v-3309a336>About Finance College</h2><div class=\"flex flex-wrap justify-center gap-5\" data-v-3309a336><div data-v-3309a336>Ut non mauris porta, rhoncus velit sed, semper nisi. Nulla facilisi. Nulla ac pharetra massa. Curabitur ornare orci lectus.</div><div data-v-3309a336>Ut non mauris porta, rhoncus velit sed, semper nisi. Nulla facilisi. Nulla ac pharetra massa. Curabitur ornare orci lectus.</div><div data-v-3309a336>Ut non mauris porta, rhoncus velit sed, semper nisi. Nulla facilisi. Nulla ac pharetra massa. Curabitur ornare orci lectus.</div></div></div><div class=\"m-5 flex flex-col items-center\" data-v-3309a336><h2 class=\"font-semibold text-2xl\" data-v-3309a336>Top Topics to Explore</h2><div class=\"flex flex-wrap justify-center font-lg\" data-v-3309a336><div class=\"tag\" data-v-3309a336>Loans</div><div class=\"tag\" data-v-3309a336>Mortgage</div><div class=\"tag\" data-v-3309a336>Interest</div><div class=\"tag\" data-v-3309a336>401k</div><div class=\"tag\" data-v-3309a336>Investing</div></div></div>", 2);
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"xl:mt-10 mt-5 flex flex-col items-center\" data-v-3309a336><h2 class=\"font-semibold text-center text-2xl\" data-v-3309a336>About Finance College</h2><div class=\"flex flex-wrap xl:justify-center gap-5 text-center\" data-v-3309a336><div data-v-3309a336>Ut non mauris porta, rhoncus velit sed, semper nisi. Nulla facilisi. Nulla ac pharetra massa. Curabitur ornare orci lectus.</div><div data-v-3309a336>Ut non mauris porta, rhoncus velit sed, semper nisi. Nulla facilisi. Nulla ac pharetra massa. Curabitur ornare orci lectus.</div></div></div><div class=\"xl:mt-10 mt-5 flex flex-col items-center\" data-v-3309a336><h2 class=\"font-semibold text-center text-2xl\" data-v-3309a336>Top Topics to Explore</h2><div class=\"flex flex-wrap lg:gap-5 gap-3 font-lg\" data-v-3309a336><div class=\"tag\" data-v-3309a336>Loans</div><div class=\"tag\" data-v-3309a336>Mortgage</div><div class=\"tag\" data-v-3309a336>Interest</div><div class=\"tag\" data-v-3309a336>401k</div><div class=\"tag\" data-v-3309a336>Investing</div></div></div>", 2);
 
 var _hoisted_5 = {
-  "class": "flex flex-wrap justify-center gap-5 text-gray-600"
+  "class": "flex flex-wrap justify-center lg:gap-5 gap-3 xl:mt-10 mt-5 text-gray-600"
 };
 
 var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Placeholder 1");
@@ -22568,7 +22568,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "md:w-2/3 flex flex-col justify-start items-start py-10"
+  "class": "lg:w-2/3 flex flex-col justify-start items-start py-10"
 };
 var _hoisted_2 = {
   "class": "flex flex-col gap-5"
@@ -22627,7 +22627,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "md:w-2/3 flex flex-col justify-start items-start py-10"
+  "class": "lg:w-2/3 flex flex-col justify-start items-start py-10"
 };
 var _hoisted_2 = {
   key: 0,
@@ -25429,7 +25429,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nbox-icon[data-v-3309a336] {\n  fill: rgb(4, 120, 87);\n}\nbox-icon[data-v-3309a336]:hover {\n  fill: rgb(3, 211, 152);\n}\n.tag[data-v-3309a336] {\n    border-radius: 50px;\n    padding: .4rem;\n    border: 2px solid rgb(4, 120, 87);\n    max-width: -webkit-max-content;\n    max-width: -moz-max-content;\n    max-width: max-content;\n    margin: 0.5rem;\n}\n.tag[data-v-3309a336]:hover {\n  background-color: rgb(4, 120, 87);\n  color:white;\n  font-weight: 600;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nbox-icon[data-v-3309a336] {\n  fill: rgb(4, 120, 87);\n}\nbox-icon[data-v-3309a336]:hover {\n  fill: rgb(3, 211, 152);\n}\n.tag[data-v-3309a336] {\n    border-radius: 30px;\n    padding: .5rem;\n    color:white;\n    font-weight: 600;\n    background: rgb(4, 120, 87);\n    max-width: -webkit-max-content;\n    max-width: -moz-max-content;\n    max-width: max-content;\n}\n.tag[data-v-3309a336]:hover {\n  background-color: rgb(3, 211, 152);\n  color:black;\n  font-weight: 600;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
