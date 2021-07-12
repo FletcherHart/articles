@@ -2328,29 +2328,9 @@ select {
 		border-left-width: 1px;
 	}
 
-	.md\:px-5 {
-		padding-left: 1.25rem;
-		padding-right: 1.25rem;
-	}
-
-	.md\:px-10 {
-		padding-left: 2.5rem;
-		padding-right: 2.5rem;
-	}
-
-	.md\:px-16 {
-		padding-left: 4rem;
-		padding-right: 4rem;
-	}
-
 	.md\:px-12 {
 		padding-left: 3rem;
 		padding-right: 3rem;
-	}
-
-	.md\:py-10 {
-		padding-top: 2.5rem;
-		padding-bottom: 2.5rem;
 	}
 }
 @media (min-width: 1024px) {

@@ -1,6 +1,6 @@
 <template>
   <app-layout>
-    <div class="flex flex-col items-center py-10">
+    <div class="w-full flex flex-col items-center py-10">
       <form class="flex lg:flex-row flex-col w-full gap-5" @submit.prevent="submit()">
         <div class="lg:w-3/4 flex flex-col gap-10">
           <div class="flex flex-col w-full">
@@ -39,7 +39,23 @@
           </div>
         </div>
         <div class="lg:w-1/4 px-5 flex flex-col">
-          <div>Save/Publish </div>
+          <div>
+            <h3>Category</h3>
+            <MultiSelect 
+              v-model="form.selectedCategories" 
+              :options="categories" 
+              optionLabel="cat" 
+              placeholder="Select Categories" 
+              display="chip"
+              :filter="true"
+            />
+            <div>
+              <label for="addCat">New Category</label>
+              <input id="addCat" class="border border-gray-300 p-2" />
+              <button type="button" @click="addCat()">Add</button>
+            </div>
+          </div>
+          <div>Save/Publish</div>
           <button class="border border-gray-400 text-gray-700 bg-gray-200 p-3 rounded" type="submit">Publish</button>
           <div v-show="$page.props.flash.message">
             {{ $page.props.flash.message }}
@@ -54,14 +70,29 @@
     import AppLayout from '@/Layouts/AppLayout'
     import Editor from '@tinymce/tinymce-vue'
     import { useForm } from '@inertiajs/inertia-vue3'
+    import MultiSelect from 'primevue/multiselect';
 
     export default {
       components: {
           AppLayout,
+          MultiSelect,
           'editor': Editor,
+      },
+      data() {
+        return {
+          categories: this.possibleCategories,
+        }
       },
       props: {
         article: Object,
+        currentCategories: {
+          type: Array,
+          default: [],
+        },
+        possibleCategories: {
+          type: Array,
+          default: [],
+        }
       },
       setup (props) {
         if(props.article === undefined || props.article.length == 0) {
@@ -69,6 +100,7 @@
             title: null,
             tagline: null,
             text: null,
+            selectedCategories: [],
           })
 
           return { form }
@@ -78,6 +110,7 @@
             title: props.article.title,
             tagline: props.article.tagline,
             text: props.article.text,
+            selectedCategories: props.currentCategories
           })
 
           return { form }
@@ -89,6 +122,14 @@
             this.form.post('/articles')
           } else {
             this.form.put('/articles/' + this.article.id)
+          }
+        },
+        addCat() {
+          let category = document.getElementById('addCat').value;
+          const categoryObject = {cat: category, value: category};
+          if (this.categories.filter(e => e.cat === category).length <= 0 && category != "") {
+            this.categories.push(categoryObject);
+            this.form.selectedCategories.push(categoryObject);
           }
         }
       }

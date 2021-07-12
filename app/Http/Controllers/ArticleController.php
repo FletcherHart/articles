@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\ArticleCategories;
+use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -67,6 +69,17 @@ class ArticleController extends Controller
 
         $article->save();
 
+        foreach($request->selectedCategories as $category_object) {
+            $category = $category_object['value'];
+            $article_category = Category::firstOrCreate([
+                'title' => $category,
+            ]);
+            $article_category_connection = ArticleCategories::firstOrCreate([
+                'article_id' => $article->id,
+                'category_id' => $article_category->id
+            ]);
+        }
+
         return redirect()->back()->with('message', 'Published Successfully.');
         // return redirect()->route('articles.show', $article->id);
     }
@@ -103,7 +116,33 @@ class ArticleController extends Controller
         if($article == null || auth()->id() != $article->user_id) {
             return Inertia::render('Error', ['error' => 404]);
         }
-        return Inertia::render('CreateArticle', ['article' => $article, 'edit' => true]);
+
+        $possible_categories = [];
+        $current_categories = [];
+        $article_categories = $article->categories;
+
+        $categories = Category::get();
+
+        foreach($categories as $category) {
+            $category_object = (object) [
+                'cat' => $category->title,
+                'value' => $category->title,
+              ];
+            array_push($possible_categories, $category_object);
+
+            if($article_categories->where('id', $category->id)->isNotEmpty()) {
+                array_push($current_categories, $category_object);
+            }
+        }
+
+        return Inertia::render('CreateArticle', 
+            [
+                'article' => $article, 
+                'possibleCategories' => $possible_categories, 
+                'currentCategories' => $current_categories,
+                'edit' => true
+            ]
+        );
     }
 
     /**
@@ -127,6 +166,17 @@ class ArticleController extends Controller
         $article->text = $request->text;
 
         $article->save();
+
+        foreach($request->selectedCategories as $category_object) {
+            $category = $category_object['value'];
+            $article_category = Category::firstOrCreate([
+                'title' => $category,
+            ]);
+            $article_category_connection = ArticleCategories::firstOrCreate([
+                'article_id' => $article->id,
+                'category_id' => $article_category->id
+            ]);
+        }
         
         return redirect()->back()->with('message', 'Published Successfully.');
     }

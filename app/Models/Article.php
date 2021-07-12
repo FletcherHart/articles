@@ -10,4 +10,10 @@ class Article extends Model
     use HasFactory;
 
     protected $fillable = ['title', 'tagline', 'text', 'user_id'];
+
+    public function categories() {
+        return $this
+            ->belongsToMany(Category::class, 'article_categories')
+            ->withTimestamps();
+    }
 }
