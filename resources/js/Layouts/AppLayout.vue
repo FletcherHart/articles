@@ -139,7 +139,7 @@
             </header>
 
             <!-- Page Content -->
-            <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex md:flex-row flex-col">
+            <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex lg:flex-row flex-col">
                 <slot></slot>
             </main>
         </div>
