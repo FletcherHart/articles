@@ -22016,7 +22016,7 @@ var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("dat
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-3309a336");
 
 var _hoisted_1 = {
-  "class": "lg:w-1/3 max-h-screen lg:border-l lg:border-grey-100 py-10 md:px-5 lg:ml-10 flex flex-col items-center sticky top-0"
+  "class": "lg:w-1/3 max-h-screen lg:border-l lg:border-grey-100 py-10 md:px-12 lg:ml-10 flex flex-col items-center sticky -top-5"
 };
 var _hoisted_2 = {
   "class": "flex justify-center items-center text-2xl"
@@ -22028,15 +22028,11 @@ var _hoisted_5 = {
   "class": "flex flex-wrap justify-center lg:gap-5 gap-3 xl:mt-10 mt-5 text-gray-600"
 };
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Placeholder 1");
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("About");
 
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Placeholder 2");
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Privacy");
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Placeholder 3");
-
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Placeholder 4");
-
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Placeholder 5");
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Contact");
 
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
@@ -22084,24 +22080,6 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache) {
   }, {
     "default": _withId(function () {
       return [_hoisted_8];
-    }),
-    _: 1
-    /* STABLE */
-
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
-    href: "#"
-  }, {
-    "default": _withId(function () {
-      return [_hoisted_9];
-    }),
-    _: 1
-    /* STABLE */
-
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
-    href: "#"
-  }, {
-    "default": _withId(function () {
-      return [_hoisted_10];
     }),
     _: 1
     /* STABLE */

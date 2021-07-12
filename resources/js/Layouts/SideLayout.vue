@@ -1,5 +1,5 @@
 <template>
-  <div class="lg:w-1/3 max-h-screen lg:border-l lg:border-grey-100 py-10 md:px-5 lg:ml-10 flex flex-col items-center sticky top-0">
+  <div class="lg:w-1/3 max-h-screen lg:border-l lg:border-grey-100 py-10 md:px-12 lg:ml-10 flex flex-col items-center sticky -top-5">
     <div class="flex justify-center items-center text-2xl">
       <box-icon type='logo' name='twitter' size="lg"></box-icon>
       <box-icon type='logo' name='linkedin-square' size="lg"></box-icon>
@@ -24,11 +24,9 @@
       </div>
     </div>
     <footer class="flex flex-wrap justify-center lg:gap-5 gap-3 xl:mt-10 mt-5 text-gray-600">
-      <inertia-link href="#">Placeholder 1</inertia-link>
-      <inertia-link href="#">Placeholder 2</inertia-link>
-      <inertia-link href="#">Placeholder 3</inertia-link>
-      <inertia-link href="#">Placeholder 4</inertia-link>
-      <inertia-link href="#">Placeholder 5</inertia-link>
+      <inertia-link href="#">About</inertia-link>
+      <inertia-link href="#">Privacy</inertia-link>
+      <inertia-link href="#">Contact</inertia-link>
     </footer>
   </div>
 </template>
