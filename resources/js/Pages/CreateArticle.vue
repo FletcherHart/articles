@@ -1,8 +1,8 @@
 <template>
   <app-layout>
     <div class="w-full flex flex-col items-center py-10">
-      <form class="flex lg:flex-row flex-col w-full gap-5" @submit.prevent="submit()">
-        <div class="lg:w-3/4 flex flex-col gap-10">
+      <form class="flex xl:flex-row flex-col w-full gap-5" @submit.prevent="submit()">
+        <div class="xl:w-3/4 flex flex-col gap-10">
           <div class="flex flex-col w-full">
             <label for="title">Title</label>
             <div class="error" v-show="form.errors.title">{{ form.errors.title }}</div>
@@ -38,7 +38,7 @@
             />
           </div>
         </div>
-        <div class="lg:w-1/4 px-5 flex flex-col">
+        <div class="xl:w-1/4 px-5 flex flex-col">
           <div>
             <h3>Category</h3>
             <MultiSelect 
@@ -48,12 +48,20 @@
               placeholder="Select Categories" 
               display="chip"
               :filter="true"
-              class="max-w-full"
+              class="max-w-full w-full"
             />
             <div>
               <label for="addCat">New Category</label>
-              <input id="addCat" class="border border-gray-300 p-2" />
-              <button type="button" @click="addCat()">Add</button>
+              <div class="flex gap-5">
+                <input id="addCat" class="border border-gray-300 p-2" />
+                <button 
+                  class="border border-gray-400 text-gray-700 bg-gray-200 p-2 rounded" 
+                  type="button" 
+                  @click="addCat()"
+                >
+                  Add
+                </button>
+              </div>
             </div>
           </div>
           <div>Save/Publish</div>
