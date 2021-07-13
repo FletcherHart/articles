@@ -23788,7 +23788,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         optionLabel: "cat",
         placeholder: "Select Categories",
         display: "chip",
-        filter: true
+        filter: true,
+        "class": "max-w-full"
       }, null, 8
       /* PROPS */
       , ["modelValue", "options"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [_hoisted_11, _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {

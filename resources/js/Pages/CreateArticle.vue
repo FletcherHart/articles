@@ -48,6 +48,7 @@
               placeholder="Select Categories" 
               display="chip"
               :filter="true"
+              class="max-w-full"
             />
             <div>
               <label for="addCat">New Category</label>
