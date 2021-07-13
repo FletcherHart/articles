@@ -43,7 +43,19 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return Inertia::render('CreateArticle');
+        $possible_categories = [];
+
+        $categories = Category::get();
+
+        foreach($categories as $category) {
+            $category_object = (object) [
+                'cat' => $category->title,
+                'value' => $category->title,
+              ];
+            array_push($possible_categories, $category_object);
+        }
+
+        return Inertia::render('CreateArticle', ['possibleCategories' => $possible_categories,]);
     }
 
     /**
