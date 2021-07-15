@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticleController;
 use Illuminate\Foundation\Application;
+use App\Http\Controllers\EmailListingController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -36,3 +37,8 @@ Route::resource('articles', ArticleController::class);
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
+
+
+Route::get('/email-list', [EmailListingController::class, 'index'])->name('email-list');
+Route::post('/email-list', [EmailListingController::class, 'sendEMail'])->name('email-list');
+Route::post('/subscribe-email', [EmailListingController::class, 'store'])->name('subscribe-email');

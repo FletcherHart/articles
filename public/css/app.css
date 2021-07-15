@@ -1381,11 +1381,11 @@ select {
 .gap-1 {
 	gap: 0.25rem;
 }
-.gap-3 {
-	gap: 0.75rem;
-}
 .gap-5 {
 	gap: 1.25rem;
+}
+.gap-3 {
+	gap: 0.75rem;
 }
 .gap-2 {
 	gap: 0.5rem;
@@ -2141,10 +2141,6 @@ select {
 		margin-left: 1.5rem;
 	}
 
-	.sm\:ml-0 {
-		margin-left: 0px;
-	}
-
 	.sm\:block {
 		display: block;
 	}
@@ -2159,10 +2155,6 @@ select {
 
 	.sm\:h-10 {
 		height: 2.5rem;
-	}
-
-	.sm\:h-20 {
-		height: 5rem;
 	}
 
 	.sm\:w-10 {
@@ -2288,10 +2280,6 @@ select {
 	.sm\:text-left {
 		text-align: left;
 	}
-
-	.sm\:text-right {
-		text-align: right;
-	}
 }
 @media (min-width: 768px) {
 
@@ -2352,14 +2340,6 @@ select {
 
 	.lg\:w-2\/3 {
 		width: 66.666667%;
-	}
-
-	.lg\:w-3\/4 {
-		width: 75%;
-	}
-
-	.lg\:w-1\/4 {
-		width: 25%;
 	}
 
 	.lg\:flex-row {
