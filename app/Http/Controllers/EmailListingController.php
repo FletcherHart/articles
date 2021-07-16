@@ -28,7 +28,7 @@ class EmailListingController extends Controller
 
         EmailListing::firstOrCreate(['email' => $request['email']]);
 
-        return redirect('dashboard');
+        return back()->with('message', 'Email successfully subscribed.');;
     }
 
     public function destroy($id) {

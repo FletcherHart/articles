@@ -1,6 +1,6 @@
 <template>
   <app-layout>
-    <div class="flex flex-col py-10 sm:px-5 w-full">
+    <div class="flex md:flex-row flex-col-reverse gap-10 py-10 sm:px-5 w-full">
       <div class="w-full shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
         <table class="w-full text-left divide-y divide-gray-200">
           <thead class="bg-gray-200 text-gray-700">
@@ -23,6 +23,15 @@
           </tbody>
         </table>
       </div>
+      <div class="flex justify-end">
+        <div class="flex flex-col gap-3">
+          <div>
+            <h2 class="text-lg">Add an email to the subscriber list.</h2>
+            <h3 class="text-sm">Please do not add subscribers who have previously unsubscribed.</h3>
+          </div>
+          <subscribe-email></subscribe-email>
+        </div>
+      </div>
     </div>
   </app-layout>
 </template>
@@ -30,9 +39,11 @@
 <script>
 import AppLayout from '@/Layouts/AppLayout'
 import { Inertia } from '@inertiajs/inertia'
+import { useForm } from '@inertiajs/inertia-vue3'
+import SubscribeEmail from '../Components/SubscribeEmail.vue'
 
 export default {
-  components: { AppLayout },
+  components: { AppLayout, SubscribeEmail, },
   props: {
     addresses: Array
   },
@@ -40,7 +51,7 @@ export default {
     destroy(id) {
       Inertia.delete(route('email-list', id))
     }
-  }
+  },
 }
 </script>
 
