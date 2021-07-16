@@ -38,7 +38,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
 
-
 Route::get('/email-list', [EmailListingController::class, 'index'])->name('email-list');
-Route::post('/email-list', [EmailListingController::class, 'sendEMail'])->name('email-list');
+Route::delete('/email-list/{id}', [EmailListingController::class, 'destroy'])->name('email-list');
+
+Route::get('/send-emails', [EmailListingController::class, 'send'])->name('send-emails');
+Route::post('/send-emails', [EmailListingController::class, 'sendEMail'])->name('send-emails');
 Route::post('/subscribe-email', [EmailListingController::class, 'store'])->name('subscribe-email');

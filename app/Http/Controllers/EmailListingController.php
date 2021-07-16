@@ -13,7 +13,12 @@ use SendGrid\Mail\To;
 class EmailListingController extends Controller
 {
     public function index() {
-        return Inertia::render('EmailList');
+        $addresses = EmailListing::all();
+        return Inertia::render('EmailList', ['addresses' => $addresses]);
+    }
+
+    public function send() {
+        return Inertia::render('SendEmails');
     }
 
     public function store(Request $request) {
@@ -24,6 +29,16 @@ class EmailListingController extends Controller
         EmailListing::firstOrCreate(['email' => $request['email']]);
 
         return redirect('dashboard');
+    }
+
+    public function destroy($id) {
+        $address = EmailListing::find($id);
+        if(auth()->user()->role('admin')) {
+            $address->delete();
+            return back();
+        } else {
+            return back();
+        }
     }
 
     /**
@@ -65,10 +80,10 @@ class EmailListingController extends Controller
 
         try {
             $response = $sendgrid->send($email);
-            return response()->json("Email sent successfully");
+            return redirect()->back()->with('message', 'Email sent successfully.');
 
         } catch (Exception $e) {
-            return response()->json( 'Caught exception: '. $e->getMessage() ."\n");
+            return redirect()->back()->with('message', 'Caught exception: '. $e->getMessage() ."\n");
         }
     }
 }
