@@ -39,10 +39,9 @@ class EmailListingController extends Controller
         $validated = $request->validate([
             'emailTopic' => 'required|string',
             'emailBody' => 'required|string',
-            'senderEmail' => 'required|email',
         ]);
 
-        $from = $validated['senderEmail'];
+        $from = getenv('SENDER_EMAIL');
         $topic = $validated['emailTopic'];
         $addresses = EmailListing::all();
         $receivers = [];

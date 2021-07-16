@@ -1,27 +1,24 @@
 <template>
   <app-layout>
-    <form class="flex xl:flex-row flex-col w-full gap-5" @submit.prevent="submit()">
-      <label>
-          <input
-              type="text"
-              placeholder="Topic"
-              v-model="form.emailTopic"
-          />
-      </label>
-      <label>
-          <input
-              type="email"
-              placeholder="Sender Email"
-              v-model="form.senderEmail"
-          />
-      </label>
-      <label>
-          <textarea
-              placeholder="Enter email body"
-              v-model="form.emailBody"
-          ></textarea>
-      </label>
-      <button type="submit" class="btn btn-outline-success">
+    <form class="flex flex-col w-full gap-5 items-center py-10 px-5" @submit.prevent="submit()">
+      <div class="md:w-1/2 w-full">
+        <input
+          type="text"
+          class="w-full"
+          placeholder="Topic"
+          v-model="form.emailTopic"
+        />
+        <div class="error" v-show="form.errors.emailTopic">{{ form.errors.emailTopic }}</div>
+      </div>
+      <div class="md:w-1/2 w-full">
+        <textarea
+          class="w-full h-60"
+          placeholder="Enter email body"
+          v-model="form.emailBody"
+        ></textarea>
+        <div class="error" v-show="form.errors.emailBody">{{ form.errors.emailBody }}</div>
+      </div>
+      <button type="submit" class="btn btn-outline-success bg-gray-100 border border-gray-300 max-w-max">
           Send Emails
       </button>
     </form>
@@ -51,3 +48,11 @@ export default {
   }
 }
 </script>
+
+<style>
+.error {
+  color: red;
+  font-weight: 700;
+  font-size: larger;
+}
+</style>
