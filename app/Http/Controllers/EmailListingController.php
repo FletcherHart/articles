@@ -3,18 +3,32 @@
 namespace App\Http\Controllers;
 
 use App\Models\EmailListing;
+use App\Mail\NewArticle;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Http;
 use Inertia\Inertia;
-use SendGrid\Mail\Mail;
-use SendGrid\Mail\Personalization;
-use SendGrid\Mail\Subject;
-use SendGrid\Mail\To;
 
 class EmailListingController extends Controller
 {
-    public function index() {
-        $addresses = EmailListing::all();
-        return Inertia::render('EmailList', ['addresses' => $addresses]);
+    public function index(Request $request) {
+
+        $page = "";
+        
+        if($request['targetPage'] == null) {
+            $page = 'https://api.mailgun.net/v3/lists/'. getenv('MAILGUN_ALIAS') .'/members/pages';
+        } else {
+            $page = $request['targetPage'];
+        }
+
+        $response = Http::withBasicAuth('api', getenv('MAILGUN_SECRET'))
+            ->get($page);
+
+        if($response->failed()) {
+            return Inertia::render('EmailList', ['error' => $response->json()['message']]);
+        }
+
+        return Inertia::render('EmailList', ['addresses' => $response->json()['items'], 'pages' => $response->json()['paging']]);
     }
 
     public function send() {
@@ -23,30 +37,31 @@ class EmailListingController extends Controller
 
     public function store(Request $request) {
         $validated = $request->validate([
-            'email' => 'required|email|unique:email_listings',
+            'email' => 'required|email',
         ]);
+        $page = 'https://api.mailgun.net/v3/lists/'. getenv('MAILGUN_ALIAS') .'/members';
+        $response = Http::withBasicAuth('api', getenv('MAILGUN_SECRET'))
+            ->asForm()->post($page, ['address' => $validated['email']]);
 
-        EmailListing::firstOrCreate(['email' => $request['email']]);
-
-        return back()->with('message', 'Email successfully subscribed.');;
-    }
-
-    public function destroy($id) {
-        $address = EmailListing::find($id);
-        if(auth()->user()->role('admin')) {
-            $address->delete();
-            return back();
-        } else {
-            return back();
+        if($response->failed()) {
+            return back()->with('error',  $response->json()['message']);
         }
+
+        return back()->with('message', 'Email successfully subscribed.');
     }
 
-    /**
-     * push array in key/value pairs
-     */
-    protected function array_push_assoc(&$array, $key, $value){
-        $array[$key] = $value;
-        return $array;
+    public function destroy($address) {
+        $page = 'https://api.mailgun.net/v3/lists/'. getenv('MAILGUN_ALIAS') .'/members/' . $address;
+        $response = Http::withBasicAuth('api', getenv('MAILGUN_SECRET'))->delete($page);
+
+        if($response->failed()) {
+            if($response->status() == '404') {
+                return back()->with('error',  'The email address "'. $address .'" is not on the mailing list.');
+            }
+            return back()->with('error',  $response->json()['message']);
+        }
+
+        return back();
     }
 
     public function sendEMail(Request $request)
@@ -56,34 +71,6 @@ class EmailListingController extends Controller
             'emailBody' => 'required|string',
         ]);
 
-        $from = getenv('SENDER_EMAIL');
-        $topic = $validated['emailTopic'];
-        $addresses = EmailListing::all();
-        $receivers = [];
-        $emailContent = $validated['emailBody'];
-
-        $email = new \SendGrid\Mail\Mail();
-        $email->setFrom($from, "Finance Master");
-        $email->setSubject($topic);
-        // $email->addTos($receivers);
-        $email->addContent("text/plain", $emailContent);
-
-        foreach($addresses as $address){
-            $personalization = new Personalization;
-            $personalization->addTo(new To($address->email));
-            $personalization->setSubject(new Subject($topic));
-            $email->addPersonalization($personalization);
-            //array_push($receivers, $address->email);
-        }
-        
-        $sendgrid = new \SendGrid(getenv('SENDGRID_KEY'));
-
-        try {
-            $response = $sendgrid->send($email);
-            return redirect()->back()->with('message', 'Email sent successfully.');
-
-        } catch (Exception $e) {
-            return redirect()->back()->with('message', 'Caught exception: '. $e->getMessage() ."\n");
-        }
+        Mail::to(getenv('MAILGUN_ALIAS'))->send(new NewArticle());
     }
 }

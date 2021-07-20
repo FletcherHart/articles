@@ -11,6 +11,9 @@
     <div v-show="$page.props.flash.message">
       {{ $page.props.flash.message }}
     </div>
+    <div v-show="$page.props.flash.subscribeError" class="text-lg text-red-700">
+      {{ $page.props.flash.subscribeError }}
+    </div>
 </template>
 
 <script>

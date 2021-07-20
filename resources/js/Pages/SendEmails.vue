@@ -42,7 +42,7 @@ export default {
     })
 
     function submit() {
-      this.form.post('/email-list')
+      this.form.post(route('send-emails'))
     }
 
     return {form, submit}
