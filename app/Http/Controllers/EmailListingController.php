@@ -71,6 +71,8 @@ class EmailListingController extends Controller
             'emailBody' => 'required|string',
         ]);
 
-        Mail::to(getenv('MAILGUN_ALIAS'))->send(new NewArticle());
+        Mail::to(getenv('MAILGUN_ALIAS'))->send(new NewArticle($validated['emailTopic'],$validated['emailBody']));
+
+        return back()->with('message', 'Emails sent. Please check your Mailgun account to check their progress.');
     }
 }
