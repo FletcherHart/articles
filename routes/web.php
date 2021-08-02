@@ -43,4 +43,5 @@ Route::delete('/email-list/{address}', [EmailListingController::class, 'destroy'
 
 Route::get('/send-emails', [EmailListingController::class, 'send'])->name('send-emails');
 Route::post('/send-emails', [EmailListingController::class, 'sendEMail'])->name('send-emails');
-Route::post('/subscribe-email', [EmailListingController::class, 'store'])->name('subscribe-email');
+Route::post('/subscribe-email', [EmailListingController::class, 'confirmEmail'])->name('subscribe-email');
+Route::get('/confirm', [EmailListingController::class, 'store'])->name('confirm-email');

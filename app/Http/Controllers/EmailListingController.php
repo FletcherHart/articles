@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\EmailListing;
+use App\Mail\EmailSubscribe;
 use App\Mail\NewArticle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -16,7 +17,7 @@ class EmailListingController extends Controller
         $page = "";
         
         if($request['targetPage'] == null) {
-            $page = 'https://api.mailgun.net/v3/lists/'. getenv('MAILGUN_ALIAS') .'/members/pages';
+            $page = 'https://api.mailgun.net/v3/lists/'. getenv('MAILGUN_LIST_ALIAS') .'/members/pages';
         } else {
             $page = $request['targetPage'];
         }
@@ -35,23 +36,79 @@ class EmailListingController extends Controller
         return Inertia::render('SendEmails');
     }
 
-    public function store(Request $request) {
+    public function confirmEmail(Request $request) {
         $validated = $request->validate([
             'email' => 'required|email',
         ]);
-        $page = 'https://api.mailgun.net/v3/lists/'. getenv('MAILGUN_ALIAS') .'/members';
+
+        //Add as unsubscribed member to prevent dupes.
+        $page = 'https://api.mailgun.net/v3/lists/'. getenv('MAILGUN_LIST_ALIAS') .'/members';
         $response = Http::withBasicAuth('api', getenv('MAILGUN_SECRET'))
-            ->asForm()->post($page, ['address' => $validated['email']]);
+            ->asForm()->post($page, ['address' => $request['email'], 'subscribed' => 'no']);
 
         if($response->failed()) {
-            return back()->with('error',  $response->json()['message']);
+            return back()->with('subscribeError',  $response->json()['message']);
         }
 
-        return back()->with('message', 'Email successfully subscribed.');
+        //Send verification email
+        $conf_code = md5($validated['email'].getenv('MAIL_HASH'));
+        $email_html = (new EmailSubscribe($conf_code, $validated['email']))->render();
+
+        $page = 'https://api.mailgun.net/v3/'. getenv('MAILGUN_ALIAS') .'/messages';
+        $response = Http::withBasicAuth('api', getenv('MAILGUN_SECRET'))
+            ->asForm()->post(
+                $page, 
+                [
+                    'from' => getenv('APP_NAME') . '<' . getenv('MAILGUN_LIST_ALIAS') . '>',
+                    'to' => $validated['email'], 
+                    'subject' => "Mailing List Confirmation",
+                    'html' => $email_html,
+                ]
+            );
+
+        if($response->failed()) {
+            return back()->with('subscribeError',  $response->json()['message']);
+        }
+
+        return back()->with('message', 'Confirmation email sent.');
+    }
+
+    public function store(Request $request) {
+
+        if (md5($request['email'].getenv('MAIL_HASH')) != $request['code']) {
+            return Inertia::render('ConfirmEmail', 
+                [
+                    'title' => "Confirmation Failed", 
+                    'body' => "A problem occured trying to confirm this email."
+                ]
+            );
+        }
+
+        //Add member to mailing list
+        $page = 'https://api.mailgun.net/v3/lists/'. getenv('MAILGUN_LIST_ALIAS') .'/members';
+        $response = Http::withBasicAuth('api', getenv('MAILGUN_SECRET'))
+            ->asForm()->post($page, ['address' => $request['email'], 'upsert' => 'yes']);
+
+        if($response->failed()) {
+            return Inertia::render('ConfirmEmail',  
+                [
+                    'title' => "Confirmation Failed", 
+                    'body' => $response->json()['message']
+                ]
+            );
+        }
+
+        return Inertia::render('ConfirmEmail',  
+            [
+                'title' => "Confirmation Complete", 
+                'body' => 'Email has been sucessfully subscribed.'
+            ]
+        );
+        
     }
 
     public function destroy($address) {
-        $page = 'https://api.mailgun.net/v3/lists/'. getenv('MAILGUN_ALIAS') .'/members/' . $address;
+        $page = 'https://api.mailgun.net/v3/lists/'. getenv('MAILGUN_LIST_ALIAS') .'/members/' . $address;
         $response = Http::withBasicAuth('api', getenv('MAILGUN_SECRET'))->delete($page);
 
         if($response->failed()) {
