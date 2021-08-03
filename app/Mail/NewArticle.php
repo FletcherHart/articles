@@ -11,14 +11,17 @@ class NewArticle extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $text, $topic;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($topic, $text)
     {
-        //
+        $this->topic = $topic;
+        $this->text = $text;
     }
 
     /**
@@ -28,6 +31,6 @@ class NewArticle extends Mailable
      */
     public function build()
     {
-        return $this->view('Email.NewArticleEmail');
+        return $this->subject($this->topic)->markdown('Email.NewArticleEmail');
     }
 }
