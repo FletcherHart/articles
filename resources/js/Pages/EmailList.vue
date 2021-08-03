@@ -1,26 +1,39 @@
 <template>
   <app-layout>
     <div class="flex flex-col w-full">
-      <div v-if="$page.props.flash.error" class="w-full text-center text-lg text-red-700 py-10">
+      <div
+        v-if="$page.props.flash.error"
+        class="w-full text-center text-lg text-red-700 py-10"
+      >
         {{ $page.props.flash.error }}
       </div>
-      <div class="flex md:flex-row flex-col-reverse gap-10 py-10 sm:px-5 w-full">
+      <div
+        class="flex md:flex-row flex-col-reverse gap-10 py-10 sm:px-5 w-full"
+      >
         <div class="w-full">
           <div class="flex justify-between mb-5">
             <ButtonGray @click="page(this.pages.first)">
-              <box-icon name='first-page'></box-icon> First
+              <box-icon name="first-page"></box-icon> First
             </ButtonGray>
             <ButtonGray @click="page(this.pages.previous)">
-              <box-icon name='chevrons-left'></box-icon> Prev
+              <box-icon name="chevrons-left"></box-icon> Prev
             </ButtonGray>
             <ButtonGray @click="page(this.pages.next)">
-              Next <box-icon name='chevrons-right'></box-icon>
+              Next <box-icon name="chevrons-right"></box-icon>
             </ButtonGray>
             <ButtonGray @click="page(this.pages.last)">
-              Last <box-icon name='last-page'></box-icon>
+              Last <box-icon name="last-page"></box-icon>
             </ButtonGray>
           </div>
-          <div class="w-full shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+          <div
+            class="
+              w-full
+              shadow
+              overflow-hidden
+              border-b border-gray-200
+              sm:rounded-lg
+            "
+          >
             <table class="w-full text-left divide-y divide-gray-200">
               <thead class="bg-gray-200 text-gray-700">
                 <tr>
@@ -38,7 +51,12 @@
                   <td>{{ address.name }}</td>
                   <td>{{ address.address }}</td>
                   <td>
-                    <button class="p-3 bg-red-700 text-white" @click="destroy(address.address)">Delete</button>
+                    <button
+                      class="p-3 bg-red-700 text-white"
+                      @click="destroy(address.address)"
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               </tbody>
@@ -49,7 +67,9 @@
           <div class="flex flex-col gap-3">
             <div>
               <h2 class="text-lg">Add an email to the subscriber list.</h2>
-              <h3 class="text-sm">Please do not add subscribers who have previously unsubscribed.</h3>
+              <h3 class="text-sm">
+                Please do not add subscribers who have previously unsubscribed.
+              </h3>
             </div>
             <subscribe-email></subscribe-email>
           </div>
@@ -67,17 +87,17 @@ import SubscribeEmail from "../Components/SubscribeEmail.vue"
 import ButtonGray from "../Components/ButtonGray.vue"
 
 export default {
-  components: { AppLayout, SubscribeEmail, ButtonGray,},
+  components: { AppLayout, SubscribeEmail, ButtonGray },
   props: {
     addresses: Array,
     pages: Array,
   },
-  setup () {
+  setup() {
     const form = useForm({
       targetPage: null,
     })
 
-    return {form,}
+    return { form }
   },
   methods: {
     page(target) {
@@ -98,7 +118,8 @@ export default {
   font-size: larger;
 }
 
-th, td {
+th,
+td {
   padding: 0.5rem;
 }
 </style>

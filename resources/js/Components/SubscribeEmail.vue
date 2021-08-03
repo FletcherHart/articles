@@ -3,7 +3,11 @@
     <form class="flex gap-5" @submit.prevent="addEmail()">
       <div class="flex flex-col">
         <label for="newEmail">Email:</label>
-        <input type="text" placeholder="johndoe@email.com" v-model="form.email" />
+        <input
+          type="text"
+          placeholder="johndoe@email.com"
+          v-model="form.email"
+        />
       </div>
       <div class="self-end">
         <button class="p-3 bg-green-600 text-white rounded">Submit</button>
@@ -22,7 +26,7 @@
 import { useForm } from "@inertiajs/inertia-vue3"
 
 export default {
-  setup () {
+  setup() {
     const form = useForm({
       email: null,
     })
@@ -31,9 +35,8 @@ export default {
       this.form.post("/subscribe-email")
     }
 
-    return {form, addEmail,}
+    return { form, addEmail }
   },
-  methods: {
-  },
+  methods: {},
 }
 </script>
