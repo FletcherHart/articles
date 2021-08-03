@@ -33,7 +33,14 @@ module.exports = {
     ],
     "comma-dangle": [
       "warn", 
-      "always",
+      {
+        "arrays": "always",
+        "objects": "always",
+        "functions": "never",
+      },
     ],
+  },
+  "globals": {
+    "route": "readonly",
   },
 }
