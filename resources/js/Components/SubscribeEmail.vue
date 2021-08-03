@@ -1,4 +1,5 @@
 <template>
+  <div>
     <form class="flex gap-5" @submit.prevent="addEmail()">
       <div class="flex flex-col">
         <label for="newEmail">Email:</label>
@@ -14,24 +15,25 @@
     <div v-show="$page.props.flash.subscribeError" class="text-lg text-red-700">
       {{ $page.props.flash.subscribeError }}
     </div>
+  </div>
 </template>
 
 <script>
-import { useForm } from '@inertiajs/inertia-vue3'
+import { useForm } from "@inertiajs/inertia-vue3"
 
 export default {
   setup () {
     const form = useForm({
-      email: null
+      email: null,
     })
 
     function addEmail() {
-      this.form.post('/subscribe-email')
+      this.form.post("/subscribe-email")
     }
 
-    return {form, addEmail}
+    return {form, addEmail,}
   },
   methods: {
-  }
+  },
 }
 </script>

@@ -60,33 +60,33 @@
 </template>
 
 <script>
-import AppLayout from '@/Layouts/AppLayout'
-import { Inertia } from '@inertiajs/inertia'
-import { useForm } from '@inertiajs/inertia-vue3'
-import SubscribeEmail from '../Components/SubscribeEmail.vue'
-import ButtonGray from '../Components/ButtonGray.vue'
+import AppLayout from "@/Layouts/AppLayout"
+import { Inertia } from "@inertiajs/inertia"
+import { useForm } from "@inertiajs/inertia-vue3"
+import SubscribeEmail from "../Components/SubscribeEmail.vue"
+import ButtonGray from "../Components/ButtonGray.vue"
 
 export default {
-  components: { AppLayout, SubscribeEmail, ButtonGray},
+  components: { AppLayout, SubscribeEmail, ButtonGray,},
   props: {
     addresses: Array,
-    pages: Array
+    pages: Array,
   },
   setup () {
     const form = useForm({
       targetPage: null,
     })
 
-    return {form}
+    return {form,}
   },
   methods: {
     page(target) {
       this.form.targetPage = target
-      this.form.post(route('email-list'))
+      this.form.post(route("email-list"))
     },
     destroy(address) {
-      Inertia.delete(route('email-list.destroy', address))
-    }
+      Inertia.delete(route("email-list.destroy", address))
+    },
   },
 }
 </script>

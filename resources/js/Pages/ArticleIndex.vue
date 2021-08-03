@@ -29,28 +29,28 @@
 </template>
 
 <script>
-    import AppLayout from '@/Layouts/AppLayout'
-    import SideLayout from '@/Layouts/SideLayout'
-    import { Inertia } from '@inertiajs/inertia'
+import AppLayout from "@/Layouts/AppLayout"
+import SideLayout from "@/Layouts/SideLayout"
+import { Inertia } from "@inertiajs/inertia"
 
-    export default {
-      components: {
-        AppLayout,
-        SideLayout
-      },
-      props: {
-        articles: Array,
-      },
-      methods: {
-        format(created_at) {
-          let date = new Date(created_at)
-          let options = { year: 'numeric', month: 'short', day: 'numeric' }
+export default {
+  components: {
+    AppLayout,
+    SideLayout,
+  },
+  props: {
+    articles: Array,
+  },
+  methods: {
+    format(created_at) {
+      let date = new Date(created_at)
+      let options = { year: "numeric", month: "short", day: "numeric", }
 
-          return date.toLocaleDateString("en-US", options)
-        },
-        remove(article_id) {
-          Inertia.delete(route('articles.destroy', article_id))
-        }
-      }
-    }
+      return date.toLocaleDateString("en-US", options)
+    },
+    remove(article_id) {
+      Inertia.delete(route("articles.destroy", article_id))
+    },
+  },
+}
 </script>

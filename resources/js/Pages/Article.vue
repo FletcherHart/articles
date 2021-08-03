@@ -15,26 +15,26 @@
 </template>
 
 <script>
-    import AppLayout from '@/Layouts/AppLayout'
-    import SideLayout from '@/Layouts/SideLayout'
+import AppLayout from "@/Layouts/AppLayout"
+import SideLayout from "@/Layouts/SideLayout"
 
-    export default {
-      components: {
-        AppLayout,
-        SideLayout
-      },
-      props: {
-        article: Object,
-        author: String,
+export default {
+  components: {
+    AppLayout,
+    SideLayout,
+  },
+  props: {
+    article: Object,
+    author: String,
 
-      },
-      methods: {
-        format(created_at) {
-          let date = new Date(created_at)
-          let options = { year: 'numeric', month: 'short', day: 'numeric' }
+  },
+  methods: {
+    format(created_at) {
+      let date = new Date(created_at)
+      let options = { year: "numeric", month: "short", day: "numeric", }
 
-          return date.toLocaleDateString("en-US", options)
-        }
-      }
-    }
+      return date.toLocaleDateString("en-US", options)
+    },
+  },
+}
 </script>

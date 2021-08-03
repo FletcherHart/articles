@@ -14,13 +14,13 @@
 </template>
 
 <script>
-import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo'
+import JetAuthenticationCardLogo from "@/Jetstream/AuthenticationCardLogo"
 
 export default {
-    props: ['policy'],
+  props: ["policy",],
 
-    components: {
-        JetAuthenticationCardLogo,
-    },
+  components: {
+    JetAuthenticationCardLogo,
+  },
 }
 </script>

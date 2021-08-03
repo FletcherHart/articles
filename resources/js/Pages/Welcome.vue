@@ -87,15 +87,15 @@
 </style>
 
 <script>
-import SubscribeEmail from '../Components/SubscribeEmail.vue'
+import SubscribeEmail from "../Components/SubscribeEmail.vue"
 
 export default {
-  components: { SubscribeEmail },
-    props: {
-        canLogin: Boolean,
-        canRegister: Boolean,
-        laravelVersion: String,
-        phpVersion: String,
-    },
+  components: { SubscribeEmail, },
+  props: {
+    canLogin: Boolean,
+    canRegister: Boolean,
+    laravelVersion: String,
+    phpVersion: String,
+  },
 }
 </script>

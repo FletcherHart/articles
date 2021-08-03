@@ -76,73 +76,73 @@
 </template>
 
 <script>
-    import AppLayout from '@/Layouts/AppLayout'
-    import Editor from '@tinymce/tinymce-vue'
-    import { useForm } from '@inertiajs/inertia-vue3'
-    import MultiSelect from 'primevue/multiselect';
+import AppLayout from "@/Layouts/AppLayout"
+import Editor from "@tinymce/tinymce-vue"
+import { useForm } from "@inertiajs/inertia-vue3"
+import MultiSelect from "primevue/multiselect"
 
-    export default {
-      components: {
-          AppLayout,
-          MultiSelect,
-          'editor': Editor,
-      },
-      data() {
-        return {
-          categories: this.possibleCategories,
-        }
-      },
-      props: {
-        article: Object,
-        currentCategories: {
-          type: Array,
-          default: [],
-        },
-        possibleCategories: {
-          type: Array,
-          default: [],
-        }
-      },
-      setup (props) {
-        if(props.article === undefined || props.article.length == 0) {
-          const form = useForm({
-            title: null,
-            tagline: null,
-            text: null,
-            selectedCategories: [],
-          })
-
-          return { form }
-
-        } else {
-          const form = useForm({
-            title: props.article.title,
-            tagline: props.article.tagline,
-            text: props.article.text,
-            selectedCategories: props.currentCategories
-          })
-
-          return { form }
-        }
-      },
-      methods: {
-        submit() {
-          if(this.article === undefined || this.article.length == 0) {
-            this.form.post('/articles')
-          } else {
-            this.form.put('/articles/' + this.article.id)
-          }
-        },
-        addCat() {
-          let category = document.getElementById('addCat').value;
-          const categoryObject = {cat: category, value: category};
-          if (this.categories.filter(e => e.cat === category).length <= 0 && category != "") {
-            this.categories.push(categoryObject);
-            this.form.selectedCategories.push(categoryObject);
-          }
-        }
-      }
+export default {
+  components: {
+    AppLayout,
+    MultiSelect,
+    "editor": Editor,
+  },
+  data() {
+    return {
+      categories: this.possibleCategories,
     }
+  },
+  props: {
+    article: Object,
+    currentCategories: {
+      type: Array,
+      default: Array,
+    },
+    possibleCategories: {
+      type: Array,
+      default: Array,
+    },
+  },
+  setup (props) {
+    if(props.article === undefined || props.article.length == 0) {
+      const form = useForm({
+        title: null,
+        tagline: null,
+        text: null,
+        selectedCategories: [],
+      })
+
+      return { form, }
+
+    } else {
+      const form = useForm({
+        title: props.article.title,
+        tagline: props.article.tagline,
+        text: props.article.text,
+        selectedCategories: props.currentCategories,
+      })
+
+      return { form, }
+    }
+  },
+  methods: {
+    submit() {
+      if(this.article === undefined || this.article.length == 0) {
+        this.form.post("/articles")
+      } else {
+        this.form.put("/articles/" + this.article.id)
+      }
+    },
+    addCat() {
+      let category = document.getElementById("addCat").value
+      const categoryObject = {cat: category, value: category,}
+      if (this.categories.filter(e => e.cat === category).length <= 0 && category != "") {
+        this.categories.push(categoryObject)
+        this.form.selectedCategories.push(categoryObject)
+      }
+    },
+  },
+}
 </script>
 
 <style>

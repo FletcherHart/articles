@@ -8,15 +8,15 @@
 </template>
 
 <script>
-    import AppLayout from '@/Layouts/AppLayout'
+import AppLayout from "@/Layouts/AppLayout"
 
-    export default {
-      components: {
-        AppLayout
-      },
-      props: {
-        title: String,
-        body: String,
-      },
-    }
+export default {
+  components: {
+    AppLayout,
+  },
+  props: {
+    title: String,
+    body: String,
+  },
+}
 </script>

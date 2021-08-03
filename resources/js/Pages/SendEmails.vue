@@ -29,11 +29,11 @@
 </template>
 
 <script>
-import AppLayout from '@/Layouts/AppLayout'
-import { useForm } from '@inertiajs/inertia-vue3'
+import AppLayout from "@/Layouts/AppLayout"
+import { useForm } from "@inertiajs/inertia-vue3"
 
 export default {
-  components: { AppLayout },
+  components: { AppLayout, },
   setup () {
     const form = useForm({
       emailTopic: null,
@@ -42,13 +42,13 @@ export default {
     })
 
     function submit() {
-      this.form.post(route('send-emails'))
+      this.form.post(route("send-emails"))
     }
 
-    return {form, submit}
+    return {form, submit,}
   },
   methods: {
-  }
+  },
 }
 </script>
 
