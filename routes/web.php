@@ -45,3 +45,7 @@ Route::get('/send-emails', [EmailListingController::class, 'send'])->name('send-
 Route::post('/send-emails', [EmailListingController::class, 'sendEMail'])->name('send-emails');
 Route::post('/subscribe-email', [EmailListingController::class, 'confirmEmail'])->name('subscribe-email');
 Route::get('/confirm', [EmailListingController::class, 'store'])->name('confirm-email');
+
+// Route::get('/ui', function() {
+//     return Inertia::render('UITestPage');
+// })->name('ui');
