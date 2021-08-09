@@ -10,7 +10,18 @@
     </div>
     <div class="flex">
       <div
-        class="h-screen sticky bg-gray-800 w-full lg:w-72 md:w-56 sm:w-44 tab"
+        class="
+          sm:block
+          h-screen
+          sticky
+          bg-gray-800
+          w-full
+          lg:w-72
+          md:w-56
+          sm:w-44
+          tab
+        "
+        :class="{ hidden: showPage }"
         id="links"
       >
         <ApplicationLogo></ApplicationLogo>
@@ -30,7 +41,7 @@
           <box-icon name="envelope"></box-icon> Email List
         </admin-link>
       </div>
-      <div class="tab hidden sm:flex" id="page">
+      <div class="tab sm:flex" id="page" :class="{ hidden: !showPage }">
         <!-- Page Heading -->
         <header
           v-if="$slots.header"
@@ -68,14 +79,18 @@ export default {
     AdminLink,
     Button,
   },
+  data() {
+    return {
+      showPage: false,
+    }
+  },
   methods: {
     open(tab) {
-      let x = document.getElementsByClassName("tab")
-      for (let i = 0; i < x.length; i++) {
-        x[i].style.display = "none"
+      if (tab == "links") {
+        this.showPage = false
+      } else if (tab == "page") {
+        this.showPage = true
       }
-
-      document.getElementById(tab).style.display = "block"
     },
   },
 }
