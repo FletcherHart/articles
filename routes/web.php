@@ -26,6 +26,10 @@ Route::get('/', function () {
     ]);
 })->name('home');
 
+Route::middleware(['auth', 'role:admin'])->get('/admin', function () {
+  return Inertia::render('Admin');
+})->name('admin');
+
 Route::get('/error', function () {
     return Inertia::render('Error');
 })->name('error');
