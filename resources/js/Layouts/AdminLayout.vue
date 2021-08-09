@@ -1,7 +1,15 @@
 <template>
   <div class="flex flex-col">
+    <div class="block sm:hidden w-full">
+      <Button class="bg-indigo-300 w-1/2 rounded-none" @click="open('links')">
+        Admin
+      </Button>
+      <Button class="bg-indigo-300 w-1/2 rounded-none" @click="open('page')">
+        Page
+      </Button>
+    </div>
     <div class="flex">
-      <div class="h-screen sticky bg-gray-800 w-72">
+      <div class="h-screen sticky bg-gray-800 w-full sm:w-72 tab" id="links">
         <ApplicationLogo></ApplicationLogo>
         <admin-link :href="route('admin')" :active="route().current('admin')">
           <box-icon name="home-heart" color="white"></box-icon> Home
@@ -19,7 +27,7 @@
           <box-icon name="envelope"></box-icon> Email List
         </admin-link>
       </div>
-      <div>
+      <div class="tab hidden sm:flex" id="page">
         <!-- Page Heading -->
         <header
           v-if="$slots.header"
@@ -50,10 +58,22 @@
 
 <script>
 import AdminLink from "@/Components/AdminLink"
+import Button from "@/Jetstream/Button"
 
 export default {
   components: {
     AdminLink,
+    Button,
+  },
+  methods: {
+    open(tab) {
+      let x = document.getElementsByClassName("tab")
+      for (let i = 0; i < x.length; i++) {
+        x[i].style.display = "none"
+      }
+
+      document.getElementById(tab).style.display = "block"
+    },
   },
 }
 </script>
