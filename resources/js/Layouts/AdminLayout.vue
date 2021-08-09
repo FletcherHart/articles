@@ -9,7 +9,10 @@
       </Button>
     </div>
     <div class="flex">
-      <div class="h-screen sticky bg-gray-800 w-full sm:w-72 tab" id="links">
+      <div
+        class="h-screen sticky bg-gray-800 w-full lg:w-72 md:w-56 sm:w-44 tab"
+        id="links"
+      >
         <ApplicationLogo></ApplicationLogo>
         <admin-link :href="route('admin')" :active="route().current('admin')">
           <box-icon name="home-heart" color="white"></box-icon> Home
