@@ -3,6 +3,7 @@
     :type="type"
     class="
       inline-flex
+      justify-center
       items-center
       px-4
       py-3
