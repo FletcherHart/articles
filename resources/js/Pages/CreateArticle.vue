@@ -1,6 +1,6 @@
 <template>
-  <app-layout>
-    <div class="w-full flex flex-col items-center py-10">
+  <admin-layout>
+    <div class="w-full flex flex-col items-center py-10 px-2 sm:px-10">
       <form
         class="flex xl:flex-row flex-col w-full gap-5"
         @submit.prevent="submit()"
@@ -100,18 +100,18 @@
         </div>
       </form>
     </div>
-  </app-layout>
+  </admin-layout>
 </template>
 
 <script>
-import AppLayout from "@/Layouts/AppLayout"
+import AdminLayout from "@/Layouts/AdminLayout"
 import Editor from "@tinymce/tinymce-vue"
 import { useForm } from "@inertiajs/inertia-vue3"
 import MultiSelect from "primevue/multiselect"
 
 export default {
   components: {
-    AppLayout,
+    AdminLayout,
     MultiSelect,
     editor: Editor,
   },
