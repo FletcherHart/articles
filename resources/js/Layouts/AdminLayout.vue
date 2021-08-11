@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col">
-    <div class="block sm:hidden w-full">
+    <div class="block md:hidden w-full h-10">
       <Button class="bg-indigo-300 w-1/2 rounded-none" @click="open('links')">
         Admin
       </Button>
@@ -11,14 +11,15 @@
     <div class="flex">
       <div
         class="
-          sm:block
+          md:block
           h-screen
-          sticky
+          absolute
+          md:top-0
+          top-10
+          left-0
           bg-gray-800
           w-full
-          lg:w-72
-          md:w-56
-          sm:w-44
+          md:w-64
           tab
         "
         :class="{ hidden: showPage }"
@@ -41,7 +42,11 @@
           <box-icon name="envelope"></box-icon> Email List
         </admin-link>
       </div>
-      <div class="tab sm:flex" id="page" :class="{ hidden: !showPage }">
+      <div
+        class="tab sm:flex w-full md:pl-64"
+        id="page"
+        :class="{ hidden: !showPage }"
+      >
         <!-- Page Heading -->
         <header
           v-if="$slots.header"
@@ -51,18 +56,7 @@
         </header>
 
         <!-- Page Content -->
-        <main
-          class="
-            max-w-7xl
-            mx-auto
-            px-4
-            sm:px-6
-            lg:px-8
-            flex
-            lg:flex-row
-            flex-col
-          "
-        >
+        <main class="mx-auto w-full flex lg:flex-row flex-col">
           <slot></slot>
         </main>
       </div>
