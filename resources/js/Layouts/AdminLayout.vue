@@ -13,7 +13,7 @@
         class="
           md:block
           h-screen
-          absolute
+          fixed
           md:top-0
           top-10
           left-0
