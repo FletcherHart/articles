@@ -35,16 +35,15 @@
             </div>
             <editor
               id="text"
-              v-model="form.text"
-              api-key="ptd43efbud1gfikm8ov7vw818u0tw2l3hxsbqm6h43gp3nyk"
+              v-model="form.text" 
               :init="{
                 height: 500,
                 width: '100%',
                 menubar: false,
                 plugins: [
-                  'advlist autolink lists link image charmap print preview anchor',
-                  'searchreplace visualblocks code fullscreen',
-                  'insertdatetime media table paste code help wordcount',
+                  'advlist lists autolink link',
+                  'searchreplace visualblocks',
+                  'table paste code help wordcount',
                 ],
                 toolbar:
                   'undo redo | formatselect | bold italic backcolor | \

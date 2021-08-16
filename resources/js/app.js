@@ -10,6 +10,23 @@ import "primevue/resources/themes/saga-blue/theme.css";
 import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
 
+// TinyMCE imports used by Editor
+import "tinymce/tinymce";
+import "tinymce/themes/silver";
+import "tinymce/icons/default";
+import "tinymce/skins/ui/oxide/skin.css";
+import "tinymce/plugins/advlist"
+import "tinymce/plugins/lists"
+import "tinymce/plugins/autolink"
+import "tinymce/plugins/link"
+import "tinymce/plugins/searchreplace"
+import "tinymce/plugins/table"
+import "tinymce/plugins/paste"
+import "tinymce/plugins/code"
+import "tinymce/plugins/help"
+import "tinymce/plugins/wordcount"
+import "tinymce/plugins/visualblocks"
+
 const el = document.getElementById('app');
 
 createApp({
