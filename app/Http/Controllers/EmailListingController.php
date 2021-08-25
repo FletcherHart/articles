@@ -33,7 +33,7 @@ class EmailListingController extends Controller
     }
 
     public function send() {
-        return Inertia::render('SendEmails');
+        return Inertia::render('EmailCampaign');
     }
 
     public function confirmEmail(Request $request) {
