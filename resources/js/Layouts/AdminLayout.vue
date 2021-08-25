@@ -42,7 +42,12 @@
           <box-icon name="envelope"></box-icon> Email List
         </admin-link>
         <div class="bg-gray-700" v-if="route().current('email.*')">
-          <admin-link :href="route('email.campaign')">Campaign</admin-link>
+          <admin-sublink
+            class="hover:bg-gray-700"
+            :href="route('email.campaign')"
+            :active="route().current('email.campaign')"
+            >Campaign</admin-sublink
+          >
         </div>
       </div>
       <div
@@ -69,11 +74,13 @@
 
 <script>
 import AdminLink from "@/Components/AdminLink"
+import AdminSublink from "@/Components/AdminSublink"
 import Button from "@/Jetstream/Button"
 
 export default {
   components: {
     AdminLink,
+    AdminSublink,
     Button,
   },
   data() {
