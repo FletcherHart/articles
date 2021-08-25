@@ -45,8 +45,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::match(['get', 'post'], '/email-list', [EmailListingController::class, 'index'])->name('email-list');
 Route::delete('/email-list/{address}', [EmailListingController::class, 'destroy'])->name('email-list.destroy');
 
-Route::get('/send-emails', [EmailListingController::class, 'send'])->name('send-emails');
-Route::post('/send-emails', [EmailListingController::class, 'sendEMail'])->name('send-emails');
+Route::get('/email-campaign', [EmailListingController::class, 'send'])->name('email-campaign');
+Route::post('/email-campaign', [EmailListingController::class, 'sendEMail'])->name('email-campaign');
 Route::post('/subscribe-email', [EmailListingController::class, 'confirmEmail'])->name('subscribe-email');
 Route::get('/confirm', [EmailListingController::class, 'store'])->name('confirm-email');
 
