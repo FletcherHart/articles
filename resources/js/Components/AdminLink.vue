@@ -22,7 +22,7 @@ export default {
   computed: {
     classes() {
       return this.active
-        ? "bg-indigo-500 hover:bg-indigo-700 border-l-4 border-transparent hover:border-white focus:outline-none transition"
+        ? "bg-indigo-500 hover:bg-indigo-700 border-l-4 fill-current border-transparent hover:border-white focus:outline-none transition"
         : "hover:bg-gray-900 hover:text-blue-400 border-l-4 fill-current border-transparent hover:border-blue-400 transition"
     },
   },
