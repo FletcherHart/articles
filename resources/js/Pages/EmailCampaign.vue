@@ -1,5 +1,5 @@
 <template>
-  <app-layout>
+  <admin-layout>
     <form
       class="flex flex-col w-full gap-5 items-center py-10 px-5"
       @submit.prevent="submit()"
@@ -40,15 +40,15 @@
         {{ $page.props.flash.message }}
       </div>
     </form>
-  </app-layout>
+  </admin-layout>
 </template>
 
 <script>
-import AppLayout from "@/Layouts/AppLayout"
+import AdminLayout from "@/Layouts/AdminLayout"
 import { useForm } from "@inertiajs/inertia-vue3"
 
 export default {
-  components: { AppLayout },
+  components: { AdminLayout },
   setup() {
     const form = useForm({
       emailTopic: null,
@@ -57,7 +57,7 @@ export default {
     })
 
     function submit() {
-      this.form.post(route("send-emails"))
+      this.form.post(route("email.send"))
     }
 
     return { form, submit }

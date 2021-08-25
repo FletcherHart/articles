@@ -107,10 +107,10 @@ export default {
   methods: {
     page(target) {
       this.form.targetPage = target
-      this.form.post(route("email-list"))
+      this.form.post(route("email.list"))
     },
     destroy(address) {
-      Inertia.delete(route("email-list.destroy", address))
+      Inertia.delete(route("email.destroy", address))
     },
   },
 }

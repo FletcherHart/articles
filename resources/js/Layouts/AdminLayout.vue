@@ -36,11 +36,14 @@
           <box-icon name="file"></box-icon> Articles
         </admin-link>
         <admin-link
-          :href="route('email-list')"
-          :active="route().current('email-list')"
+          :href="route('email.list')"
+          :active="route().current('email.list')"
         >
           <box-icon name="envelope"></box-icon> Email List
         </admin-link>
+        <div class="bg-gray-700" v-if="route().current('email.*')">
+          <admin-link :href="route('email.campaign')">Campaign</admin-link>
+        </div>
       </div>
       <div
         class="tab sm:flex w-full md:pl-64"

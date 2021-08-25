@@ -42,13 +42,13 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
 
-Route::match(['get', 'post'], '/email-list', [EmailListingController::class, 'index'])->name('email-list');
-Route::delete('/email-list/{address}', [EmailListingController::class, 'destroy'])->name('email-list.destroy');
+Route::match(['get', 'post'], '/email-list', [EmailListingController::class, 'index'])->name('email.list');
+Route::delete('/email-list/{address}', [EmailListingController::class, 'destroy'])->name('email.destroy');
 
-Route::get('/email-campaign', [EmailListingController::class, 'send'])->name('email-campaign');
-Route::post('/email-campaign', [EmailListingController::class, 'sendEMail'])->name('email-campaign');
-Route::post('/subscribe-email', [EmailListingController::class, 'confirmEmail'])->name('subscribe-email');
-Route::get('/confirm', [EmailListingController::class, 'store'])->name('confirm-email');
+Route::get('/email-campaign', [EmailListingController::class, 'send'])->name('email.campaign');
+Route::post('/email-campaign', [EmailListingController::class, 'sendEMail'])->name('email.send');
+Route::post('/subscribe-email', [EmailListingController::class, 'confirmEmail'])->name('email.subscribe');
+Route::get('/confirm', [EmailListingController::class, 'store'])->name('email.confirm');
 
 // Route::get('/ui', function() {
 //     return Inertia::render('UITestPage');

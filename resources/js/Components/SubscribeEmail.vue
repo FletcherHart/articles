@@ -39,7 +39,7 @@ export default {
     })
 
     function addEmail() {
-      this.form.post("/subscribe-email")
+      this.form.post("/email.subscribe")
     }
 
     return { form, addEmail }
